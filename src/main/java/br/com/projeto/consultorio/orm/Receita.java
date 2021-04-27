@@ -14,6 +14,15 @@ public class Receita {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String descricao;
+	private Double valor;
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
 
 	public Integer getId() {
 		return id;

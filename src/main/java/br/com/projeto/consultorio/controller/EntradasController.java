@@ -19,7 +19,7 @@ public class EntradasController {
 		
 		ReceitaDto receita2 = new ReceitaDto();
 		receita2.setId(2);
-		receita2.setDescricao("Consulta Plano Empresarial Unimed");
+		receita2.setDescricao("Consulta Plano Empresarial Circulo");
 		
 		return Arrays.asList(receita, receita2);
 	}
