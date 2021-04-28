@@ -1,27 +1,26 @@
 package br.com.projeto.consultorio.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projeto.consultorio.controller.dto.ReceitaDto;
+import br.com.projeto.consultorio.model.Receita;
+import br.com.projeto.consultorio.repository.ReceitaRepository;
 
 @RestController
 public class EntradasController {
+	
+	@Autowired
+	private ReceitaRepository receitaRepository;
 
 	@RequestMapping("/receitas")
 	public List<ReceitaDto> lista() {
-		ReceitaDto receita = new ReceitaDto();
-		receita.setId(1);
-		receita.setDescricao("Consulta Particular");
+		List<Receita> receitas = receitaRepository.findAll();
 		
-		ReceitaDto receita2 = new ReceitaDto();
-		receita2.setId(2);
-		receita2.setDescricao("Consulta Plano Empresarial Circulo");
-		
-		return Arrays.asList(receita, receita2);
+		return ReceitaDto.converter(receitas);
 	}
 	
 }
